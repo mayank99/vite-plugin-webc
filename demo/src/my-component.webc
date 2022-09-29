@@ -1,0 +1,11 @@
+<span>hello world</span>
+
+<style webc:scoped>
+	span {
+		color: hotpink;
+	}
+</style>
+
+<script>
+	console.log('hello from webc');
+</script>

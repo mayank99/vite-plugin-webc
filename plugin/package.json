@@ -1,0 +1,16 @@
+{
+	"name": "vite-plugin-webc",
+	"version": "0.1.0",
+	"license": "MIT",
+	"type": "module",
+	"main": "index.js",
+	"files": [
+		"index.mjs"
+	],
+	"dependencies": {
+		"@11ty/webc": "^0.4.4"
+	},
+	"devDependencies": {
+		"vite": "^3.1.0"
+	}
+}
