@@ -31,10 +31,10 @@ export default function VitePluginWebc() {
 			const webc = new WebC();
 			webc.setBundlerMode(true);
 
-			// HACK: prevent webc from processing styles and scripts
+			// HACK: prevent webc from processing unrelated styles and scripts
 			const _code = code
-				.replaceAll('<style', '<style webc:keep')
-				.replaceAll('<script', '<script webc:keep');
+				.replaceAll('<style', '<style webc:raw')
+				.replaceAll('<script', '<script webc:raw');
 
 			webc.setContent(_code);
 			webc.defineComponents('src/**/*.webc');
