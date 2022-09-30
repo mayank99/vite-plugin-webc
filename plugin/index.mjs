@@ -11,14 +11,21 @@ export default function VitePluginWebc() {
 	return {
 		name: 'vite-plugin-webc',
 		enforce: 'pre',
-		async transformIndexHtml(code) {
+		async transformIndexHtml(code, { server }) {
+			// HACK: exit early in prod build, but need a more reliable way
+			if (!server) return code;
+
 			const webc = new WebC();
 			webc.setContent(code);
 			webc.defineComponents('src/**/*.webc');
 			const { html } = await webc.compile();
 			return html;
 		},
-		async transform(code, id) {
+		async transform(code, id, options) {
+			// HACK: exit early in dev server, but need a more reliable way
+			const isDev = options?.hasOwnProperty('ssr');
+			if (isDev) return;
+
 			if (!id.endsWith('.html')) return;
 
 			const webc = new WebC();
