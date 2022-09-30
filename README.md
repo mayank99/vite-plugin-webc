@@ -1,3 +1,1 @@
-# vite-plugin-webc
-
-WIP
+plugin/README.md
