@@ -33,8 +33,8 @@ export default function VitePluginWebc() {
 
 			// HACK: prevent webc from processing styles and scripts
 			const _code = code
-				.replaceAll('<style>', '<style webc:keep>')
-				.replaceAll('<script>', '<script webc:keep>');
+				.replaceAll('<style', '<style webc:keep')
+				.replaceAll('<script', '<script webc:keep');
 
 			webc.setContent(_code);
 			webc.defineComponents('src/**/*.webc');
