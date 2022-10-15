@@ -10,10 +10,12 @@
 		"index.mjs",
 		"LICENSE"
 	],
-	"dependencies": {
-		"@11ty/webc": "^0.4.4"
+	"dependencies": {},
+	"peerDependencies": {
+		"@11ty/webc": "^0.5.3"
 	},
 	"devDependencies": {
+		"@11ty/webc": "^0.5.3",
 		"vite": "^3.1.0"
 	}
 }

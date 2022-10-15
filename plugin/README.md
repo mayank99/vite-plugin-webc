@@ -2,10 +2,10 @@
 
 A vite plugin for [WebC](https://github.com/11ty/webc).
 
-1. Install the package:
+1. Install webc and the plugin:
 
 ```shell
-npm i -D vite-plugin-webc
+npm i -D vite-plugin-webc @11ty/webc
 ```
 
 2. Add the plugin to the vite config:
