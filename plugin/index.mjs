@@ -11,15 +11,30 @@ export default function VitePluginWebc() {
 	return {
 		name: 'vite-plugin-webc',
 		enforce: 'pre',
-		async transformIndexHtml(code, { server }) {
-			// HACK: exit early in prod build, but need a more reliable way
-			if (!server) return code;
+		transformIndexHtml: {
+			enforce: 'pre',
+			transform: async (code, { server }) => {
+				// HACK: exit early in prod build, but need a more reliable way
+				if (!server) return code;
 
-			const webc = new WebC();
-			webc.setContent(code);
-			webc.defineComponents('src/**/*.webc');
-			const { html } = await webc.compile();
-			return html;
+				const webc = new WebC();
+				webc.setContent(code);
+				webc.defineComponents('src/**/*.webc');
+				const { html, components } = await webc.compile();
+
+				return {
+					html,
+					// HACK: importing all components so that vite knows to reload the page when they change
+					tags: [
+						{
+							tag: 'script',
+							attrs: { type: 'module' },
+							children: components.map((c) => `import '${c}?url';`).join('\n'),
+							injectTo: 'body',
+						},
+					],
+				};
+			},
 		},
 		async transform(code, id, options) {
 			// HACK: exit early in dev server, but need a more reliable way
