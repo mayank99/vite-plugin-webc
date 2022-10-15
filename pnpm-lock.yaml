@@ -10,10 +10,13 @@ importers:
 
   demo:
     specifiers:
+      open-props: 1.4.16
       postcss: ^8.4.18
       postcss-preset-env: ^7.8.2
       vite: ^3.1.0
       vite-plugin-webc: '*'
+    dependencies:
+      open-props: 1.4.16
     devDependencies:
       postcss: 8.4.18
       postcss-preset-env: 7.8.2_postcss@8.4.18
@@ -681,6 +684,10 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /open-props/1.4.16:
+    resolution: {integrity: sha512-kPIgGYjan1aKl3Vp1pG9V5TgH7CTaDWm3ndllTgr5gBQ3tu+F11dZKpZiP1+o/aCSCx8WMo15ARsFYxCAJXxHg==}
+    dev: false
 
   /parse5/7.1.1:
     resolution: {integrity: sha512-kwpuwzB+px5WUg9pyK0IcK/shltJN5/OVhQagxhCQNtT9Y9QRZqNY2e1cmbu/paRh5LMnz/oVTVLBpjFmMZhSg==}
