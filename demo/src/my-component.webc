@@ -1,8 +1,12 @@
-<span>hello world</span>
+<span webc:root webc:keep>hello world</span>
 
 <style webc:scoped>
-	span {
+	:host {
 		color: hotpink;
+
+		&:hover {
+			color: thistle;
+		}
 	}
 </style>
 
